@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#002333</color>
+    <color name="secondary">#159a9c</color>
+    <color name="neutral">#B4bec9</color>
+    <color name="blue">#deefe7</color>
+
+
+    <color name="teal_700">#1E90FF</color>
+
+    <color name="fondo">#F5F5F5</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="menu">#09184d</color>
+    <color name="info">#808085</color>
+
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "467060280805",
+    "project_id": "music-8894e",
+    "storage_bucket": "music-8894e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467060280805:android:7f301cc30206eff739f30c",
+        "android_client_info": {
+          "package_name": "com.yonatan.music"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467060280805-ekcl8j5b0une0k79gj7f9gm28rfe09so.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0quBlQC1bJCs3rDYpmky2lB2jRCBRFcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467060280805-ekcl8j5b0une0k79gj7f9gm28rfe09so.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
