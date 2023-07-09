@@ -18,10 +18,6 @@ import kotlin.properties.Delegates
 
 class RegistroUser : AppCompatActivity() {
 
-    companion object userId{
-            val idUsuario: String = ""
-    }
-
 
     private var email by Delegates.notNull<String>()
     private var password by Delegates.notNull<String>()
@@ -43,7 +39,7 @@ class RegistroUser : AppCompatActivity() {
     }
 
 
-    private fun goRegister() {
+ /*   private fun goRegister() {
         email = etEmail.text.toString()
         password = etPassword.text.toString()
 
@@ -76,7 +72,43 @@ class RegistroUser : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_LONG).show()
         }
-    }
+    }*/
+ private fun goRegister() {
+     email = etEmail.text.toString()
+     password = etPassword.text.toString()
+
+     if (email.isNotEmpty() && password.isNotEmpty()) {
+         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+             .addOnCompleteListener { task ->
+                 if (task.isSuccessful) {
+                     val userId = task.result?.user?.uid
+                     val dataRegister = SimpleDateFormat("dd/MM/yyyy").format(Date())
+                     val db = FirebaseFirestore.getInstance()
+                     val usuariosRef = db.collection("users")
+
+                     val usuario = hashMapOf(
+                         "user" to email,
+                         "dataRegister" to dataRegister
+                     )
+
+                     if (userId != null) {
+                         usuariosRef.document(userId).set(usuario)
+                             .addOnSuccessListener {
+                                 goHome(email, providerSession)
+                             }
+                             .addOnFailureListener { exception ->
+                                 Toast.makeText(this, "No se pudo crear tu usuario", Toast.LENGTH_SHORT).show()
+                             }
+                     }
+                 } else {
+                     Toast.makeText(this, "Error de servidor", Toast.LENGTH_SHORT).show()
+                 }
+             }
+     } else {
+         Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_LONG).show()
+     }
+ }
+
 
 
 

@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_configuracion"
-        android:name="com.yonatan.music.Home.ui.ajustes.ConfiguracionFragment"
+        android:name="com.yonatan.music.Home.ui.configurations.ConfiguracionFragment"
         android:label="@string/title_configuración"
         tools:layout="@layout/fragment_configuracion" />
 </navigation>

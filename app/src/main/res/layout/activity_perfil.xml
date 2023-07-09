@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".Perfil.Perfil">
+    tools:context=".Home.ui.configurations.Perfil.Perfil">
 
     <ScrollView
         android:id="@+id/scrollView3"
@@ -52,6 +52,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
+                        android:onClick="goHome"
                         android:id="@+id/imageView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -106,10 +107,10 @@
                 </RelativeLayout>
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/tvNamePrincipal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Yonatan David Pechene"
+                    android:text=" "
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="20sp"
@@ -124,9 +125,9 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/textView11"
-                    app:layout_constraintStart_toStartOf="@+id/textView11"
-                    app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                    app:layout_constraintEnd_toEndOf="@+id/tvNamePrincipal"
+                    app:layout_constraintStart_toStartOf="@+id/tvNamePrincipal"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNamePrincipal" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -160,10 +161,12 @@
                             android:text="@string/nombres"/>
 
                         <EditText
+                            android:id="@+id/etName"
+                            android:inputType="text"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textSize="20sp"
-                            android:hint="@string/actualizar"
+                            android:hint="@string/agregar"
                             android:layout_marginEnd="30dp"
                             android:layout_weight="1" />
 
@@ -185,10 +188,12 @@
                             android:text="@string/Telefono"/>
 
                         <EditText
+                            android:id="@+id/etNumberTelefono"
+                            android:inputType="number"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textSize="20sp"
-                            android:hint="@string/actualizar"
+                            android:hint="@string/agregar"
                             android:layout_marginEnd="30dp"
                             android:layout_weight="1" />
 
@@ -207,13 +212,17 @@
                             android:textSize="20sp"
                             android:textColor="@color/black"
                             android:layout_marginStart="20dp"
-                            android:text="@string/correo_electronico"/>
+                            android:text="@string/usuario"/>
 
                         <EditText
+                            android:id="@+id/textEmailAddress"
+                            android:inputType="textEmailAddress"
                             android:layout_width="0dp"
+                            android:textColor="@color/black"
                             android:layout_height="wrap_content"
                             android:textSize="20sp"
-                            android:hint="@string/actualizar"
+                            android:enabled="false"
+                            android:hint="@string/agregar"
                             android:layout_marginEnd="30dp"
                             android:layout_weight="1" />
 
@@ -238,7 +247,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textSize="20sp"
-                            android:hint="@string/actualizar"
+                            android:hint="@string/agregar"
                             android:layout_marginEnd="30dp"
                             android:layout_weight="1" />
                     </LinearLayout>
@@ -258,12 +267,23 @@
                             android:text="@string/fecha_nacimiento"/>
 
                         <EditText
+                            android:id="@+id/etFechaNacimiento"
+                            android:inputType="none"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textSize="20sp"
-                            android:hint="@string/actualizar"
+                            android:hint="@string/agregar"
+                            android:calendarTextColor="@android:color/black"
                             android:layout_marginEnd="30dp"
+                            android:imeOptions="actionNext"
+                            android:clickable="false"
+                            android:datePickerMode="spinner"
+                            android:focusable="false"
                             android:layout_weight="1" />
+
+
+
+
 
                     </LinearLayout>
 

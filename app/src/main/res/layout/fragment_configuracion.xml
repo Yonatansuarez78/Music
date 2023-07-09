@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".Home.ui.ajustes.ConfiguracionFragment">
+    tools:context=".Home.ui.configurations.ConfiguracionFragment">
 
 
     <ScrollView
@@ -64,23 +64,23 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tvNamePrincipal"
                 android:layout_width="match_parent"
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:text="Yonatan Suarez"
+                android:text="?"
                 android:textColor="@color/primary"
                 android:textSize="26sp"/>
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/tvCorreoElectronico"
                 android:layout_width="match_parent"
                 android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:text="YonatanSuarez78@gmail.com" />
+                android:text="" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/goProfile"
@@ -204,6 +204,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/goShare"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="32dp"

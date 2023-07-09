@@ -31,11 +31,13 @@
     <string name="Telefono">Telefono</string>
     <string name="nombres">Nombres</string>
     <string name="correo_electronico">Correo electronico</string>
-    <string name="actualizar">Actualizar</string>
+    <string name="agregar">Agregar</string>
     <string name="fecha_nacimiento">Fecha nacimiento</string>
     <string name="actualizar_datos">Actualizar datos</string>
     <string name="perfil">Perfil</string>
     <string name="registrate">REGISTRATE</string>
     <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
     <string name="buscar_cuenta">Buscar cuenta</string>
+    <string name="hi">Hi,</string>
+    <string name="actualiza_tus_datos">Actualiza tus datos</string>
 </resources>

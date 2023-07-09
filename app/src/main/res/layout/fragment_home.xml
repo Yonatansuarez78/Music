@@ -44,13 +44,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="Hi, Yonatan"
+                        android:text="@string/hi"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/ivPerson"
                         app:layout_constraintStart_toEndOf="@+id/ivPerson"
                         app:layout_constraintTop_toTopOf="@+id/ivPerson" />
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="?"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvNameUser"
+                        app:layout_constraintStart_toEndOf="@+id/tvNameUser"
+                        app:layout_constraintTop_toTopOf="@+id/tvNameUser" />
 
                     <ImageView
                         android:layout_width="wrap_content"

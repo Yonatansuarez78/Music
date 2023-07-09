@@ -11,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Music"
         tools:targetApi="31">
+
+
         <activity
             android:name=".Login.OlvidatePassword.OlvidatePassword"
             android:exported="false" />
@@ -18,7 +20,7 @@
             android:name=".Register.RegistroUser"
             android:exported="false" />
         <activity
-            android:name=".Perfil.Perfil"
+            android:name=".Home.ui.configurations.Perfil.Perfil"
             android:exported="false" />
         <activity
             android:name=".Home.Home"

@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.yonatan.music.Login.Login
 import com.yonatan.music.R
@@ -25,6 +26,8 @@ class OlvidatePassword : AppCompatActivity() {
 
         etEmail = findViewById(R.id.etUpdatePassword)
         mAuth = FirebaseAuth.getInstance()
+        val btnGoLogin = findViewById<ConstraintLayout>(R.id.btnGoLogin)
+        btnGoLogin.setOnClickListener { home() }
     }
 
     fun updatePassword(view: View) {
@@ -49,10 +52,8 @@ class OlvidatePassword : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun goReverse(view: View) {
-        val intent = Intent(this, Login::class.java)
-        startActivity(intent)
-    }
+
+
 
 
 }
