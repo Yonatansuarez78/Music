@@ -1,11 +1,16 @@
 package com.yonatan.music.Register
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.yonatan.music.Home.Home
@@ -97,17 +102,40 @@ class RegistroUser : AppCompatActivity() {
                                  goHome(email, providerSession)
                              }
                              .addOnFailureListener { exception ->
-                                 Toast.makeText(this, "No se pudo crear tu usuario", Toast.LENGTH_SHORT).show()
+                                 showTopSnackbar("No pudimos crear tu usuario")
                              }
                      }
                  } else {
-                     Toast.makeText(this, "Error de servidor", Toast.LENGTH_SHORT).show()
+                     showTopSnackbar("Error de servidor")
                  }
              }
      } else {
          Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_LONG).show()
      }
  }
+
+    private fun showTopSnackbar(message: String) {
+        val snackbar = Snackbar.make(
+            findViewById(android.R.id.content),
+            "",
+            Snackbar.LENGTH_LONG
+        )
+
+        snackbar.view.setBackgroundColor(Color.DKGRAY)
+
+        val params = snackbar.view.layoutParams as FrameLayout.LayoutParams
+        params.gravity = Gravity.TOP or Gravity.CENTER_HORIZONTAL
+        snackbar.view.layoutParams = params
+
+        val snackbarLayout = snackbar.view as Snackbar.SnackbarLayout
+        val textView = TextView(this)
+        textView.text = message
+        textView.setTextColor(Color.WHITE)
+        textView.gravity = Gravity.CENTER
+        snackbarLayout.addView(textView, 0)
+
+        snackbar.show()
+    }
 
 
 

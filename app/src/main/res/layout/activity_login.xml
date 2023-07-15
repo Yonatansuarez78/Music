@@ -5,15 +5,42 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:gravity="center"
     android:layout_height="match_parent"
     android:background="@color/fondo"
     tools:context=".Login.Login">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clGoHome"
+        android:background="@drawable/rendondo"
+        android:backgroundTint="@color/secondary"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:onClick="goMain">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/imageViewSelected"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/logo"
         app:civ_border_color="@color/black"
@@ -28,6 +55,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginHorizontal="10dp"
         app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/email"
         android:hint="@string/usuario">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -39,7 +67,6 @@
 
 
 
-
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -47,6 +74,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
         app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/lock"
         android:hint="@string/Contraseña">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -73,6 +101,7 @@
         android:onClick="goOlvidatePassword"
         android:textColor="@color/black"
         android:textSize="15sp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="@string/olvidaste_tu_contraseña"/>
 
@@ -106,9 +135,5 @@
 
 
     </LinearLayout>
-
-
-
-
-
+    </LinearLayout>
 </LinearLayout >

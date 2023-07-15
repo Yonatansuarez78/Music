@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.yonatan.music.Home.ui.configurations.Gallery.GalleyActivity
 import com.yonatan.music.Login.Login
 import com.yonatan.music.Home.ui.configurations.Perfil.Perfil
 import com.yonatan.music.R
@@ -29,6 +30,8 @@ class ConfiguracionFragment : Fragment() {
 
         binding.tvSigup.setOnClickListener { tvSigup() }
         binding.goProfile.setOnClickListener { goProfile() }
+        binding.goPlayList.setOnClickListener { goPlayList() }
+        binding.goGallery.setOnClickListener { goGallery() }
         binding.goShare.setOnClickListener { goShare() }
 
         mAuth = FirebaseAuth.getInstance()
@@ -78,16 +81,20 @@ class ConfiguracionFragment : Fragment() {
 
     /*---------------------------------------------------------------------------------------------------------*/
 
-    private fun tvSigup() {
-        FirebaseAuth.getInstance().signOut()
-        val intent = Intent(requireContext(), Login::class.java)
-        startActivity(intent)
-    }
-
     private fun goProfile()  {
         val intent = Intent(requireContext(), Perfil::class.java)
         startActivity(intent)
     }
+
+    private fun goPlayList()  {
+        Toast.makeText(requireContext(), "mi play list", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun goGallery()  {
+        val intent = Intent(requireContext(), GalleyActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun goShare() {
         val texto = "¡Hola! Estoy compartiendo este texto desde mi aplicación."
 
@@ -102,6 +109,12 @@ class ConfiguracionFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(), "Error al compartir", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun tvSigup() {
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent(requireContext(), Login::class.java)
+        startActivity(intent)
     }
 
     override fun onDestroyView() {

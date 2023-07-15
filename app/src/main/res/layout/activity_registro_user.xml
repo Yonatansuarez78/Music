@@ -40,8 +40,8 @@
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/imageViewSelected"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/logo"
         app:civ_border_color="@color/black"
@@ -56,6 +56,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginHorizontal="10dp"
         app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/email"
         android:hint="@string/usuario">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -75,6 +76,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
         app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/lock"
         android:hint="@string/Contraseña">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -83,6 +85,15 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvTerminosAndConditions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/terminos_condiciones"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"/>
 
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Music</string>
+    <string name="app_name">Strange Music</string>
 
     <string name="continuar">CONTINUAR</string>
     <string name="bienvenido">BIENVENIDO!</string>
@@ -7,7 +7,7 @@
     <string name="Contraseña">Contraseña</string>
     <string name="iniciar_sesion">INICIAR SESION</string>
     <string name="olvidaste_tu_contraseña">Olvidaste tu contraseña</string>
-    <string name="bienvenida">BIENVENIDO \n STRANGE MUSIC</string>
+    <string name="bienvenida">STRANGE MUSIC</string>
     <string name="bienvida_strange">¡Aquí encontrarás el ritmo perfecto para cada momento. Sumérgete en un mundo lleno de melodías y descubre tu nueva banda sonora. ¡Disfruta de la experiencia musical que siempre has deseado!</string>
     <string name="profile">Profile</string>
     <string name="notificacion">Notificacion</string>
@@ -40,4 +40,8 @@
     <string name="buscar_cuenta">Buscar cuenta</string>
     <string name="hi">Hi,</string>
     <string name="actualiza_tus_datos">Actualiza tus datos</string>
+    <string name="music">MUSIC</string>
+    <string name="terminos_condiciones">Aceptar terminos y condiciones</string>
+
+    <string name="no_tienes_imagenes_en_galeria">No tienes imagenes en tu galeria</string>
 </resources>
