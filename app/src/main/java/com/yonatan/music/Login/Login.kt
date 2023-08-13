@@ -10,8 +10,11 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.yonatan.music.Home.Home
@@ -74,6 +77,7 @@ class Login : AppCompatActivity() {
             Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_LONG).show()
         }
     }
+
 
     private fun showTopSnackbar(message: String) {
         val snackbar = Snackbar.make(
