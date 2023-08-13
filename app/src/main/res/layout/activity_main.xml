@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:text="@string/bienvida_strange"
         android:textSize="20sp"
+        android:textColor="@color/black"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"

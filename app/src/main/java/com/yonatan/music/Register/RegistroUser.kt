@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,7 +19,9 @@ import com.yonatan.music.Login.Login
 import com.yonatan.music.Login.Login.Companion.providerSession
 import com.yonatan.music.R
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
+import java.util.TimeZone
 import kotlin.properties.Delegates
 
 class RegistroUser : AppCompatActivity() {
@@ -37,6 +40,9 @@ class RegistroUser : AppCompatActivity() {
         etEmail = findViewById(R.id.etEmail)
         etPassword = findViewById(R.id.etPassword)
         mAuth = FirebaseAuth.getInstance()
+
+        val etFechaNacimiento = findViewById<EditText>(R.id.etFechaNacimiento)
+        etFechaNacimiento.setOnClickListener { goCalendar() }
     }
 
     fun registro(view: View){
@@ -135,6 +141,23 @@ class RegistroUser : AppCompatActivity() {
         snackbarLayout.addView(textView, 0)
 
         snackbar.show()
+    }
+
+    fun goCalendar() {
+        val etFechaNacimiento = findViewById<EditText>(R.id.etFechaNacimiento)
+        val builder = MaterialDatePicker.Builder.datePicker()
+        val picker = builder.build()
+
+        picker.addOnPositiveButtonClickListener { selection ->
+            val selectedDateInMillis = selection as Long
+            val selectedDate = Calendar.getInstance().apply {
+                timeInMillis = selectedDateInMillis
+                timeZone = TimeZone.getDefault()
+            }
+            val selectedDateString = SimpleDateFormat("dd/MM/yyyy").format(selectedDate.time)
+            etFechaNacimiento.setText(selectedDateString)
+        }
+        picker.show(supportFragmentManager, "DATE_PICKER_TAG")
     }
 
 
