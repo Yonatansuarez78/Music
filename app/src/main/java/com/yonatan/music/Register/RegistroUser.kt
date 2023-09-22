@@ -1,5 +1,6 @@
 package com.yonatan.music.Register
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.yonatan.music.DataClass.User
 import com.yonatan.music.Home.Home
 import com.yonatan.music.Login.Login
 import com.yonatan.music.Login.Login.Companion.providerSession
@@ -27,16 +29,28 @@ import kotlin.properties.Delegates
 class RegistroUser : AppCompatActivity() {
 
 
+    private var name by Delegates.notNull<String>()
+    private var telefono by Delegates.notNull<String>()
+    private var fecha by Delegates.notNull<String>()
     private var email by Delegates.notNull<String>()
     private var password by Delegates.notNull<String>()
+
+    private lateinit var etName: EditText
+    private lateinit var etNumber: EditText
+    private lateinit var etFecha: EditText
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
+
     private lateinit var mAuth: FirebaseAuth
 
+    @SuppressLint("MissingInflatedId", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_user)
 
+        etName = findViewById(R.id.etName)
+        etNumber = findViewById(R.id.etNumber)
+        etFecha = findViewById(R.id.etFechaNacimiento)
         etEmail = findViewById(R.id.etEmail)
         etPassword = findViewById(R.id.etPassword)
         mAuth = FirebaseAuth.getInstance()
@@ -50,11 +64,14 @@ class RegistroUser : AppCompatActivity() {
     }
 
 
- /*   private fun goRegister() {
+    private fun goRegister() {
+        name = etName.text.toString()
+        telefono = etNumber.text.toString()
+        fecha = etFecha.text.toString()
         email = etEmail.text.toString()
         password = etPassword.text.toString()
 
-        if (email.isNotEmpty() && password.isNotEmpty()) {
+        if (name.isNotEmpty() && telefono.isNotEmpty() && fecha.isNotEmpty() && email.isNotEmpty() &&  password.isNotEmpty()) {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -63,62 +80,31 @@ class RegistroUser : AppCompatActivity() {
                         val db = FirebaseFirestore.getInstance()
                         val usuariosRef = db.collection("users")
 
-                        val usuario = hashMapOf(
-                            "user" to email,
-                            "id" to userId,
-                            "dataRegister" to dataRegister
+                        val userData = User(
+                            name = name,
+                            phoneNumber = telefono,
+                            usuario = email,
+                            birthdate = fecha
                         )
 
-                        usuariosRef.document(email).set(usuario)
-                            .addOnSuccessListener {
-                                goHome(email, providerSession)
-                            }
-                            .addOnFailureListener { exception ->
-                                Toast.makeText(this, "No se pudo crear tu usuario", Toast.LENGTH_SHORT).show()
-                            }
+                        if (userId != null) {
+                            usuariosRef.document(userId).set(userData)
+                                .addOnSuccessListener {
+                                    goHome(email, providerSession)
+                                }
+                                .addOnFailureListener { exception ->
+                                    showTopSnackbar("No pudimos crear tu usuario")
+                                }
+                        }
                     } else {
-                        Toast.makeText(this, "Error de servidor", Toast.LENGTH_SHORT).show()
+                        showTopSnackbar("Error de servidor")
                     }
                 }
         } else {
             Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_LONG).show()
         }
-    }*/
- private fun goRegister() {
-     email = etEmail.text.toString()
-     password = etPassword.text.toString()
+    }
 
-     if (email.isNotEmpty() && password.isNotEmpty()) {
-         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-             .addOnCompleteListener { task ->
-                 if (task.isSuccessful) {
-                     val userId = task.result?.user?.uid
-                     val dataRegister = SimpleDateFormat("dd/MM/yyyy").format(Date())
-                     val db = FirebaseFirestore.getInstance()
-                     val usuariosRef = db.collection("users")
-
-                     val usuario = hashMapOf(
-                         "user" to email,
-                         "dataRegister" to dataRegister
-                     )
-
-                     if (userId != null) {
-                         usuariosRef.document(userId).set(usuario)
-                             .addOnSuccessListener {
-                                 goHome(email, providerSession)
-                             }
-                             .addOnFailureListener { exception ->
-                                 showTopSnackbar("No pudimos crear tu usuario")
-                             }
-                     }
-                 } else {
-                     showTopSnackbar("Error de servidor")
-                 }
-             }
-     } else {
-         Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_LONG).show()
-     }
- }
 
     private fun showTopSnackbar(message: String) {
         val snackbar = Snackbar.make(
